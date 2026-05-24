@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Case History</title>
+<style>
+body{
+    font-family:Arial;
+    background:#e5e7eb;
+}
+.container{
+    width:80%;
+    margin:30px auto;
+    background:white;
+    padding:20px;
+    border-radius:8px;
+}
+h2,h3{color:#1e3a8a;}
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+th,td{
+    border:1px solid #ccc;
+    padding:10px;
+}
+th{
+    background:#1e3a8a;
+    color:white;
+}
+.back{
+    display:inline-block;
+    margin-top:15px;
+    padding:8px 15px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h2>Case Details</h2>
+<p><b>Case ID:</b> {{ case[0] }}</p>
+<p><b>Complainant:</b> {{ case[1] }}</p>
+<p><b>Crime:</b> {{ case[2] }}</p>
+<p><b>Status:</b> {{ case[6] }}</p>
+
+<h3>Evidence Details</h3>
+
+{% if evidences %}
+<table>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Date</th>
+<th>Officer</th>
+</tr>
+
+{% for e in evidences %}
+<tr>
+<td>{{ e[2] }}</td>
+<td>{{ e[3] }}</td>
+<td>{{ e[4] }}</td>
+<td>{{ e[5] }}</td>
+</tr>
+{% endfor %}
+</table>
+{% else %}
+<p>No evidence added yet</p>
+{% endif %}
+
+<a class="back" href="/view_cases">⬅ Back</a>
+
+</div>
+</body>
+</html>

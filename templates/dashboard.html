@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#eef2f7;
+}
+
+.header{
+    background:#1e3a8a;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.logout{
+    background:red;
+    padding:6px 12px;
+    color:white;
+    text-decoration:none;
+    border-radius:4px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    text-align:center;
+}
+
+.card h2{
+    color:#1e3a8a;
+}
+
+.links{
+    padding:0 30px;
+    display:flex;
+    gap:20px;
+}
+
+.links a{
+    background:white;
+    padding:12px 18px;
+    border-radius:6px;
+    text-decoration:none;
+    color:#1e3a8a;
+    font-weight:bold;
+}
+
+/* CHART */
+.chart-box{
+    background:white;
+    margin:30px;
+    padding:20px;
+    border-radius:8px;
+}
+
+.chart{
+    display:flex;
+    align-items:flex-end;
+    height:220px;
+    gap:25px;
+}
+
+.bar-container{
+    text-align:center;
+}
+
+.bar{
+    width:45px;
+    background:#2563eb;
+    border-radius:6px 6px 0 0;
+}
+
+.bar-label{
+    margin-top:8px;
+    font-weight:bold;
+}
+
+.bar-value{
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>🚓 Crime Management Dashboard</h2>
+    <a href="/logout" class="logout">Logout</a>
+</div>
+
+<!-- SUMMARY CARDS -->
+<div class="cards">
+    <div class="card">
+        <h3>Total FIRs</h3>
+        <h2>{{ total_cases }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Completed</h3>
+        <h2>{{ completed }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Incompleted</h3>
+        <h2>{{ incompleted }}</h2>
+    </div>
+</div>
+
+<!-- LINKS -->
+<div class="links">
+    <a href="/register_fir">📄 Register FIR</a>
+    <a href="/view_cases">📂 View Cases</a>
+    <a href="/analytics">📊 Reports</a>
+</div>
+
+<!-- BAR CHART -->
+<div class="chart-box">
+    <h3>📊 Current Month Cases</h3>
+
+    {% if chart_data %}
+    <div class="chart">
+        {% for item in chart_data %}
+        <div class="bar-container">
+            <div class="bar" style="height: {{ item.percent * 2 }}px;"></div>
+            <div class="bar-label">{{ item.crime_type }}</div>
+            <div class="bar-value">{{ item.count }} cases</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p>No cases registered this month.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

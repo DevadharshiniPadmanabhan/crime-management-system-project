@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Criminal Records</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f9;
+        }
+
+        /* Header */
+        .header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h2 {
+            margin: 0;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            background-color: white;
+            color: #1e3a8a;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Container */
+        .container {
+            padding: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background-color: #1e40af;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .risk {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .high {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .medium {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .low {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2><i class="fas fa-user-secret"></i> Criminal Records</h2>
+        <a href="dashboard.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Dashboard
+        </a>
+    </div>
+
+    <div class="container">
+        <table>
+            <tr>
+                <th>Criminal ID</th>
+                <th>Name</th>
+                <th>Crime Type</th>
+                <th>Previous Cases</th>
+                <th>Risk Level</th>
+            </tr>
+
+            <tr>
+                <td>CR-501</td>
+                <td>Ramesh Kumar</td>
+                <td>Theft</td>
+                <td>4</td>
+                <td><span class="risk high">High</span></td>
+            </tr>
+
+            <tr>
+                <td>CR-502</td>
+                <td>Arun Singh</td>
+                <td>Fraud</td>
+                <td>2</td>
+                <td><span class="risk medium">Medium</span></td>
+            </tr>
+
+            <tr>
+                <td>CR-503</td>
+                <td>Suresh Patel</td>
+                <td>Cyber Crime</td>
+                <td>1</td>
+                <td><span class="risk low">Low</span></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Cases</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#eef2f7;
+            margin:0;
+        }
+
+        /* Top bar */
+        .top-bar{
+            background:#1e3a8a;
+            padding:15px 20px;
+        }
+
+        .top-bar a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+            font-size:15px;
+        }
+
+        /* Main container */
+        .container{
+            width:95%;
+            margin:25px auto;
+            background:white;
+            padding:20px;
+            border-radius:8px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            color:#1e3a8a;
+            margin-bottom:15px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th, td{
+            border:1px solid #ccc;
+            padding:10px;
+            text-align:center;
+        }
+
+        th{
+            background:#1e3a8a;
+            color:white;
+        }
+
+        select{
+            padding:5px;
+        }
+
+        button{
+            padding:6px 12px;
+            background:#1e3a8a;
+            color:white;
+            border:none;
+            border-radius:4px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#163173;
+        }
+
+        a.view{
+            text-decoration:none;
+            color:#1e3a8a;
+            font-weight:bold;
+        }
+
+        form.inline {
+            display: inline-block;
+            margin: 0;
+        }
+
+        form.inline button {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Top bar -->
+<div class="top-bar">
+    <a href="{{ url_for('dashboard') }}">⬅ Back to Dashboard</a>
+</div>
+
+<!-- Main content -->
+<div class="container">
+
+    <h2>📂 Registered FIR Cases</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Complainant</th>
+            <th>Crime Type</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Update</th>
+            <th>History</th>
+        </tr>
+
+        {% for case in cases %}
+        <tr>
+            <td>{{ case[0] }}</td>
+            <td>{{ case[1] }}</td>
+            <td>{{ case[2] }}</td>
+            <td>{{ case[3] }}</td>
+            <td>{{ case[4] }}</td>
+            <td>{{ case[6] }}</td>
+
+            <td>
+                <!-- Update Status Form -->
+                <form method="POST" action="{{ url_for('update_status', case_id=case[0]) }}" class="inline">
+                    <select name="status">
+                        <option value="Incompleted" {% if case[6]=='Incompleted' %}selected{% endif %}>
+                            Incompleted
+                        </option>
+                        <option value="Completed" {% if case[6]=='Completed' %}selected{% endif %}>
+                            Completed
+                        </option>
+                    </select>
+                    <button type="submit">Update</button>
+                </form>
+
+                <!-- Evidence Button Form -->
+                <form method="GET" action="{{ url_for('add_evidence', case_id=case[0]) }}" class="inline">
+                    <button type="submit">Evidence</button>
+                </form>
+            </td>
+
+            <td>
+                <a class="view" href="{{ url_for('case_history', case_id=case[0]) }}">
+                    View Details
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+</html>

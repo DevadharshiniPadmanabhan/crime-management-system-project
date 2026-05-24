@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports & Analytics</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f1f5f9;
+        }
+        h2 {
+            text-align: center;
+            color: #1e3a8a;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .chart {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .bar {
+            margin: 10px 0;
+        }
+        .bar span {
+            font-weight: bold;
+        }
+        .progress {
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .progress div {
+            height: 18px;
+            background: #2563eb;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Reports & Analytics</h2>
+
+<div class="cards">
+    <div class="card">
+        <h3>Total FIRs</h3>
+        <p>{{ total_firs }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Active Cases</h3>
+        <p>{{ active_cases }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Closed Cases</h3>
+        <p>{{ closed_cases }}</p>
+    </div>
+</div>
+
+<div class="chart">
+    <h3>Crime Type Analysis</h3>
+
+    {% for crime, count in crime_data %}
+    <div class="bar">
+        <span>{{ crime }} ({{ count }})</span>
+        <div class="progress">
+            <div style="width: {{ count * 10 }}%;"></div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<a href="/dashboard">⬅ Back to Dashboard</a>
+
+</body>
+</html>
+s

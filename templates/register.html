@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+<style>
+body{
+    font-family: Arial;
+    background:#f0f4f8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+.box{
+    background:white;
+    padding:30px;
+    width:320px;
+    border-radius:8px;
+}
+input,button{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+button{
+    background:#0f766e;
+    color:white;
+    border:none;
+}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>Register</h2>
+<form method="POST">
+    <input type="text" name="aadhaar" placeholder="Aadhaar Number" required>
+    <input type="date" name="dob" required>
+    <button type="submit">Register</button>
+</form>
+</div>
+</body>
+</html>

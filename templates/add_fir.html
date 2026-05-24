@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register FIR</title>
+<style>
+body{
+    font-family:Arial;
+    background:#e5e7eb;
+}
+.container{
+    width:450px;
+    margin:40px auto;
+    background:white;
+    padding:25px;
+    border-radius:8px;
+}
+h2{text-align:center;color:#1e3a8a;}
+input, textarea, button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+}
+button{
+    background:#1e3a8a;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+button:hover{background:#16307a;}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>Register FIR</h2>
+<form method="POST">
+    <input name="complainant_name" placeholder="Complainant Name" required>
+    <input name="crime_type" placeholder="Crime Type" required>
+    <input type="date" name="crime_date" required>
+    <input name="location" placeholder="Location" required>
+    <textarea name="description" placeholder="Crime Description"></textarea>
+    <button type="submit">Submit FIR</button>
+</form>
+</div>
+
+</body>
+</html>

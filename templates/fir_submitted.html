@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FIR Submitted</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 500px;
+            margin: 100px auto;
+            background-color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .back {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .back a {
+            text-decoration: none;
+            color: white;
+            background-color: #1e40af;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .back a:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="back">
+        <a href="{{ url_for('dashboard') }}"><i class="fas fa-arrow-left"></i> Dashboard</a>
+    </div>
+
+    <h1>Thank You!</h1>
+    <p>Your FIR has been successfully submitted.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<style>
+body{
+    font-family: Arial;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+.box{
+    background:white;
+    padding:30px;
+    width:320px;
+    border-radius:8px;
+    text-align:center;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+button{
+    width:100%;
+    padding:10px;
+    background:#1e3c72;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+a{ color:#1e3c72; text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="box">
+    <h2>Police Login</h2>
+    <form method="POST">
+        <input type="text" name="aadhaar" placeholder="Aadhaar Number" required>
+        <input type="date" name="dob" required>
+        <button type="submit">Login</button>
+    </form>
+    <p><a href="/register">New User? Register</a></p>
+</div>
+</body>
+</html>
